@@ -229,11 +229,35 @@ button {
   color: var(--accent);
 }
 
-.rotate-toggle {
+/* The bottom right corner of the stage: the license notice and the rotate toggle. */
+.stage-corner {
   position: absolute;
   right: 20px;
   bottom: 20px;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  pointer-events: none;
+}
+
+.stage-corner > * {
+  pointer-events: auto;
+}
+
+.credit {
+  color: var(--text-muted);
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.credit:hover {
+  color: var(--accent);
+}
+
+.rotate-toggle {
   color: var(--text-muted);
 }
 
@@ -981,6 +1005,20 @@ button {
 
 /* Narrow screens: the panel covers the lower part of the view instead of sitting beside it. */
 
+/* With the panel open on a medium-width window, the stage is too narrow for
+   the legend and the bottom right corner to sit side by side. */
+@media (max-width: 1140px) {
+  .app:has(.panel:not([hidden])) .legend {
+    bottom: 64px;
+  }
+}
+
+@media (max-width: 380px) {
+  .credit-terms {
+    display: none;
+  }
+}
+
 @media (max-width: 860px) {
   .app {
     flex-direction: column;
@@ -993,7 +1031,9 @@ button {
     border-top: 1px solid var(--border);
   }
 
-  .app:has(.panel:not([hidden])) .legend {
+  /* The stage is short while the panel is open, so the sphere needs the room. */
+  .app:has(.panel:not([hidden])) .legend,
+  .app:has(.panel:not([hidden])) .credit {
     display: none;
   }
 
