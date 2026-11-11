@@ -6,36 +6,101 @@
 
 <div align="center">
 
-<!--- FIXME: Pick an emoji and name your project! --->
-# `🌻 opensource-template`
+# `☯️ fate-graph`
 
-<!--- FIXME: Write short catchy description/tagline of project --->
-**Template for creating new open source repositories that follow the Embark open source guidelines**
+**An interactive 3D sphere of the 64 I Ching hexagrams, with study notes for each one**
 
-<!--- FIXME: Update crate, repo and CI workflow names here! Remove any that are not relevant --->
+[![Build status](https://github.com/frankie137/fate-graph/actions/workflows/ci.yml/badge.svg)](https://github.com/frankie137/fate-graph/actions/workflows/ci.yml)
+[![Live site](https://img.shields.io/badge/live%20site-GitHub%20Pages-blue)](https://frankie137.github.io/fate-graph/)
+[![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue)](#license)
 
-[![Embark](https://img.shields.io/badge/embark-open%20source-blueviolet.svg)](https://embark.dev)
-[![Embark](https://img.shields.io/badge/discord-ark-%237289da.svg?logo=discord)](https://discord.gg/dAuKfZS)
-[![Crates.io](https://img.shields.io/crates/v/rust-gpu.svg)](https://crates.io/crates/rust-gpu)
-[![Docs](https://docs.rs/rust-gpu/badge.svg)](https://docs.rs/rust-gpu)
-[![Git Docs](https://img.shields.io/badge/git%20main%20docs-published-blue)](https://embarkstudios.github.io/presser/presser/index.html)
-[![dependency status](https://deps.rs/repo/github/EmbarkStudios/rust-gpu/status.svg)](https://deps.rs/repo/github/EmbarkStudios/rust-gpu)
-[![Build status](https://github.com/EmbarkStudios/physx-rs/workflows/CI/badge.svg)](https://github.com/EmbarkStudios/physx-rs/actions)
+English | [简体中文](README.zh-CN.md)
+
+**[Open the live site](https://frankie137.github.io/fate-graph/)**
+
 </div>
 
-## TEMPLATE INSTRUCTIONS
+![The sphere in the Ink Gold theme with hexagram 11 selected](docs/screenshot-ink-gold.jpg)
 
-1. Create a new repository under EmbarkStudios using this template.
-1. **Title:** Change the first line of this README to the name of your project, and replace the sunflower with an emoji that represents your project. 🚨 Your emoji selection is critical.
-1. **Badges:** In the badges section above, change the repo name in each URL. If you are creating something other than a Rust crate, remove the crates.io and docs badges (and feel free to add more appropriate ones for your language).
-1. **CI:** In `./github/workflows/` rename `rust-ci.yml` (or the appropriate config for your language) to `ci.yml`. And go over it and adapt it to work for your project
-    - If you aren't using or customized the CI workflow, also see the TODO in `.mergify.yml`
-    - If you want to use the automatic rustdoc publishing to github pages for git main, see `rustdoc-pages.yml`
-1. **Issue & PR Templates**: Review the files in `.github/ISSUE_TEMPLATE` and `.github/pull_request_template`. Adapt them
-to suit your needs, removing or re-wording any sections that don't make sense for your use case.
-1. **CHANGELOG.md:** Change the `$REPO_NAME` in the links at the bottom to the name of the repository, and replace the example template lines with the actual notes for the repository/crate.
-1. **release.toml:** in `./release.toml` change the `$REPO_NAME` to the name of the repository
-1. **Cleanup:** Remove this section of the README and any unused files (such as configs for other languages) from the repo.
+## About
+
+fate-graph is a web page for learning the 64 hexagrams of the I Ching (易经). The page draws the hexagrams as nodes on a sphere that you can rotate. Clicking a node opens the study notes for that hexagram.
+
+The text of the site is in Simplified Chinese.
+
+## Features
+
+- **A sphere you can explore.** Drag to rotate, scroll to zoom, and click a node to select a hexagram.
+- **Relations drawn on the sphere.** After you select a hexagram, solid lines mark the six hexagrams that differ from it in one line (变卦), and dashed lines mark its opposite (错卦), reversed (综卦), and nuclear (互卦) hexagrams.
+- **Study notes for all 64 hexagrams**, in five tabs:
+  - a beginner guide with an overview, practical advice, and a glossary of rare characters;
+  - the original text line by line, each with a plain-language translation and an explanation;
+  - a slot for a picture of the hexagram, which is empty for now;
+  - a summary of Ni Haixia's commentary, with its sources;
+  - the related hexagrams, each one click away.
+- **Search** by name, King Wen number, or pinyin, for example `屯`, `3`, or `zhun`.
+- **A catalog** of all 64 hexagrams and **a primer** that introduces lines, trigrams, and hexagrams.
+- **Two color themes**: Ink Gold (dark) and Rice Paper (light).
+
+![The sphere in the Rice Paper theme](docs/screenshot-rice-paper.jpg)
+
+## How the sphere is laid out
+
+Three rules decide where each hexagram sits:
+
+- The height of a node is its number of yang lines. 乾, with six yang lines, is at the top. 坤, with six yin lines, is at the bottom. The other hexagrams lie on five rings between them.
+- An edge joins two hexagrams when they differ in exactly one line. Every hexagram has six edges, and the sphere has 192.
+- Every hexagram sits diametrically opposite its 错卦, the hexagram with all six lines flipped.
+
+`src/domain/layout.ts` chooses the order of the hexagrams within each ring. It searches for the order that keeps the edges short.
+
+## Getting started
+
+You need Node.js 24 or newer.
+
+```sh
+npm install
+npm run dev
+```
+
+`npm run dev` prints a local address. Open that address in a browser.
+
+| Command | What it does |
+| --- | --- |
+| `npm test` | Runs the unit tests |
+| `npm run build` | Type-checks the code and builds the site into `dist/` |
+| `npm run fetch:classics` | Downloads the Zhouyi text from Chinese Wikisource again |
+
+Every push to `main` builds the site and publishes it to GitHub Pages through `.github/workflows/pages.yml`.
+
+## Content and sources
+
+| Tab | Files | Source |
+| --- | --- | --- |
+| Beginner guide (入门) | `src/content/guide/NN.json` | Written for this project |
+| Original text (原文逐爻) | `src/content/classics/NN.json` | The Zhouyi on [Chinese Wikisource](https://zh.wikisource.org/wiki/周易) |
+| Picture (图解) | `src/assets/tujie/NN.jpg` | No pictures yet. `src/assets/tujie/README.md` explains how to add them |
+| Ni Haixia's commentary (倪师讲解) | `src/content/ni/NN.json` | Summaries of his Tianji (天纪) lectures |
+| Related hexagrams (卦变) | none | Computed by `src/domain/hexagrams.ts` |
+
+`NN` is the two-digit King Wen number of the hexagram, so `03` is 屯. `src/content/types.ts` defines the fields of each JSON file.
+
+Please keep these limits in mind when you read the notes:
+
+- **Original text.** The Wikisource edition differs from the received text (the Wang Bi recension that printed editions follow) in several dozen characters. `scripts/classics-corrections.json` lists these places, and the download script replaces each one with the received reading.
+- **Beginner guide.** The guide was drafted with an AI assistant. It follows the mainstream commentaries of Wang Bi, Cheng Yi, and Zhu Xi, and where they disagree it takes the most common reading. Nobody has checked it line by line against printed editions. Corrections are welcome.
+- **Ni Haixia's commentary.** These entries are paraphrased study notes, not his original text. They were compiled from transcriptions that circulate online, and every entry lists the pages it was compiled from. When a source lacks a part, the `note` field of the entry says which part is missing. If you hold rights to the source material and want an entry changed or removed, please open an issue.
+
+## Project structure
+
+| Directory | Contents |
+| --- | --- |
+| `src/domain/` | The table of the 64 hexagrams, the relations between them, and the layout on the sphere |
+| `src/scene/` | The 3D scene, drawn with Three.js |
+| `src/theme/` | The color themes |
+| `src/ui/` | The search box, the detail panel, and other page components |
+| `src/content/` | The text for each hexagram and the code that loads it |
+| `scripts/` | The script that downloads the original text |
 
 ## Contributing
 
@@ -46,15 +111,15 @@ We welcome community contributions to this project.
 Please read our [Contributor Guide](CONTRIBUTING.md) for more information on how to get started.
 Please also read our [Contributor Terms](CONTRIBUTING.md#contributor-terms) before you make any contributions.
 
-Any contribution intentionally submitted for inclusion in an Embark Studios project, shall comply with the Rust standard licensing model (MIT OR Apache 2.0) and therefore be dual licensed as described below, without any additional terms or conditions:
+Any contribution intentionally submitted for inclusion in this project shall be dual licensed as described below, without any additional terms or conditions.
 
 ### License
 
-This contribution is dual licensed under EITHER OF
+The code of this project is dual licensed under EITHER OF
 
 - Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or <http://www.apache.org/licenses/LICENSE-2.0>)
 - MIT license ([LICENSE-MIT](LICENSE-MIT) or <http://opensource.org/licenses/MIT>)
 
 at your option.
 
-For clarity, "your" refers to Embark or any other licensee/user of the contribution.
+The files in `src/content/classics/` are derived from Chinese Wikisource, which publishes its text under the [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license. That license applies to those files.
