@@ -69,6 +69,13 @@ button {
   overflow: hidden;
 }
 
+/* The element that holds the canvas of the 3D view. */
+.stage-view {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
 .stage canvas {
   display: block;
   cursor: grab;
@@ -92,7 +99,8 @@ button {
   top: 20px;
   left: 20px;
   right: 20px;
-  z-index: 2;
+  /* Above the bottom right corner, so an open menu or result list covers it. */
+  z-index: 3;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -123,6 +131,8 @@ button {
 
 .search {
   position: relative;
+  /* Above the toolbar buttons, so the result list covers them when the toolbar wraps. */
+  z-index: 1;
   flex: 0 1 340px;
   min-width: 200px;
 }
@@ -264,59 +274,6 @@ button {
 .rotate-toggle[aria-pressed='true'] {
   border-color: var(--accent);
   color: var(--accent);
-}
-
-.legend {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  z-index: 2;
-  max-width: 300px;
-  padding: 14px 16px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--overlay);
-  color: var(--text-muted);
-  font-size: 13px;
-  line-height: 1.65;
-}
-
-.legend b {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.legend-title {
-  margin: 0 0 4px;
-  color: var(--text);
-  font-family: var(--font-serif);
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.legend ul {
-  margin: 0;
-  padding-left: 1.2em;
-}
-
-.legend-scale {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-  font-size: 12px;
-}
-
-.legend-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.legend-hint {
-  margin: 8px 0 0;
-  color: var(--text-faint);
-  font-size: 12px;
 }
 
 .tooltip {
@@ -489,6 +446,10 @@ button {
   width: min(var(--panel-width), 100vw);
   height: 100%;
   overflow-y: auto;
+  /* A picture that finishes loading pushes the text below it down. With scroll
+     anchoring the browser would scroll along with that text and move the
+     picture out of sight. */
+  overflow-anchor: none;
   border-left: 1px solid var(--border);
   background: var(--surface);
   scrollbar-width: thin;
@@ -1005,14 +966,6 @@ button {
 
 /* Narrow screens: the panel covers the lower part of the view instead of sitting beside it. */
 
-/* With the panel open on a medium-width window, the stage is too narrow for
-   the legend and the bottom right corner to sit side by side. */
-@media (max-width: 1140px) {
-  .app:has(.panel:not([hidden])) .legend {
-    bottom: 64px;
-  }
-}
-
 @media (max-width: 380px) {
   .credit-terms {
     display: none;
@@ -1026,25 +979,103 @@ button {
 
   .panel {
     width: 100%;
-    height: 62%;
+    height: 58%;
     border-left: none;
     border-top: 1px solid var(--border);
   }
 
-  /* The stage is short while the panel is open, so the sphere needs the room. */
-  .app:has(.panel:not([hidden])) .legend,
-  .app:has(.panel:not([hidden])) .credit {
-    display: none;
+  /* The toolbar sits above the 3D view and no longer floats over it, because
+     the toolbar would cover a large part of the sphere on a narrow screen. */
+  .stage {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    /* The result list of the search may extend down over the panel, and it
+       must cover the tab bar of the panel, which has z-index 1. */
+    overflow: visible;
+    z-index: 2;
   }
 
-  .legend {
-    max-width: none;
-    right: 20px;
-    bottom: 64px;
+  .toolbar {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    /* The 3D view comes first in the markup, and the toolbar is shown above it. */
+    order: -1;
+    flex: none;
+    margin: 12px 16px 8px;
+    gap: 8px 10px;
+  }
+
+  .stage-view {
+    position: relative;
+    inset: auto;
+    flex: 1;
+    min-height: 0;
+  }
+
+  /* The notice and the rotate toggle get a row of their own below the 3D
+     view. If they floated over the view, the sphere would be centered in an
+     area that they partly cover, and it would look too low. */
+  .stage-corner {
+    position: static;
+    flex: none;
+    justify-content: flex-end;
+    margin: 0 16px 16px;
+  }
+
+  /* While the panel is open the stage is short, so the toggle floats over
+     the corner of the view and the sphere keeps the full height. */
+  .app:has(.panel:not([hidden])) .stage-corner {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    margin: 0;
+  }
+
+  .brand {
+    flex: 1;
+    font-size: 20px;
   }
 
   .brand span {
     display: none;
+  }
+
+  .toolbar-buttons {
+    gap: 6px;
+  }
+
+  .toolbar .pill-button {
+    padding: 6px 11px;
+  }
+
+  .search {
+    order: 1;
+    flex: 1 1 100%;
+  }
+
+  /* iOS Safari zooms the page in when a focused field has text smaller than 16px. */
+  .search-input {
+    font-size: 16px;
+  }
+
+  .theme-menu {
+    left: auto;
+    right: 0;
+    width: min(320px, calc(100vw - 32px));
+  }
+
+  /* The stage is short while the panel is open, so only the search field
+     stays above the sphere. */
+  .app:has(.panel:not([hidden])) :is(.brand, .toolbar-buttons, .credit) {
+    display: none;
+  }
+
+  .icon-button {
+    width: 40px;
+    height: 40px;
   }
 
   .trigram-table {

@@ -48,6 +48,16 @@ const CAMERA_DISTANCE = 3.5;
 const MIN_CAMERA_DISTANCE = 1.9;
 const MAX_CAMERA_DISTANCE = 6;
 const CAMERA_FOV = 45;
+const MAX_CAMERA_FOV = 80;
+
+// How far the view reaches to each side of the center of the sphere, in world
+// units at the default camera distance. The sphere has radius 1. A small view
+// reaches less far, so the sphere fills more of it.
+const VIEW_REACH = CAMERA_DISTANCE * Math.tan(THREE.MathUtils.degToRad(CAMERA_FOV / 2));
+const SMALL_VIEW_REACH = 1.22;
+// The reach changes gradually between these two sizes of the shorter side of the view.
+const SMALL_VIEW_SIDE_PX = 320;
+const LARGE_VIEW_SIDE_PX = 640;
 
 // Node sprites are drawn on a canvas of this logical size and shown at
 // NODE_WIDTH world units. The round plate is anchored on the node position.
@@ -86,6 +96,20 @@ const SCALED_FOG_FRAGMENT = /* glsl */ `
   gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
 #endif
 `;
+
+/** The vertical field of view, in degrees, that fits the sphere into a view of the given size. */
+function fieldOfViewFor(width: number, height: number): number {
+  const sizeShare = THREE.MathUtils.clamp(
+    (Math.min(width, height) - SMALL_VIEW_SIDE_PX) / (LARGE_VIEW_SIDE_PX - SMALL_VIEW_SIDE_PX),
+    0,
+    1,
+  );
+  const reach = THREE.MathUtils.lerp(SMALL_VIEW_REACH, VIEW_REACH, sizeShare);
+  // In a portrait view the width is the shorter side, so the reach applies to the width.
+  const aspect = Math.min(width / height, 1);
+  const fieldOfView = THREE.MathUtils.radToDeg(2 * Math.atan(reach / CAMERA_DISTANCE / aspect));
+  return Math.min(fieldOfView, MAX_CAMERA_FOV);
+}
 
 function createCanvas(width: number, height: number): [HTMLCanvasElement, CanvasRenderingContext2D] {
   const canvas = document.createElement('canvas');
@@ -688,11 +712,7 @@ export class SphereScene {
     }
     this.renderer.setSize(width, height);
     this.camera.aspect = width / height;
-    // On narrow viewports the vertical field of view widens so the sphere still fits.
-    const horizontalFit = THREE.MathUtils.radToDeg(
-      2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(CAMERA_FOV / 2)) / Math.min(this.camera.aspect, 1)),
-    );
-    this.camera.fov = Math.max(CAMERA_FOV, Math.min(horizontalFit, 80));
+    this.camera.fov = fieldOfViewFor(width, height);
     this.camera.updateProjectionMatrix();
     this.changeEdgeMaterial.resolution.set(width, height);
     for (const material of Object.values(this.relationMaterials)) {

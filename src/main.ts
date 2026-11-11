@@ -33,7 +33,7 @@ let activeTheme = loadSavedTheme();
 applyThemeToDocument(activeTheme);
 
 const scene = new SphereScene(
-  requireElement('stage'),
+  requireElement('stage-view'),
   {
     onPick: (hexagram) => navigateTo(hexagram),
     onHover: showTooltip,
@@ -124,30 +124,11 @@ function buildTrigramTable(): void {
   );
 }
 
-/** Seven dots that show how the node ring color runs from all yang to all yin. */
-function buildLegendScale(): void {
-  const { ringYin, ringYang } = activeTheme.scene;
-  const steps = 6;
-  const dots = Array.from({ length: steps + 1 }, (_, index) => {
-    const yangShare = Math.round(((steps - index) / steps) * 100);
-    return h('span', {
-      class: 'legend-dot',
-      attrs: { style: `background: color-mix(in srgb, ${ringYang} ${yangShare}%, ${ringYin})` },
-    });
-  });
-  requireElement('legend-scale').replaceChildren(
-    h('span', { text: '阳爻多' }),
-    ...dots,
-    h('span', { text: '阴爻多' }),
-  );
-}
-
 function setTheme(theme: Theme): void {
   activeTheme = theme;
   applyThemeToDocument(theme);
   scene.setTheme(theme);
   saveTheme(theme);
-  buildLegendScale();
   buildThemeMenu();
 }
 
@@ -229,7 +210,6 @@ window.addEventListener('hashchange', applyRoute);
 
 buildCatalog();
 buildTrigramTable();
-buildLegendScale();
 buildThemeMenu();
 bindDialog(catalogDialog, 'open-catalog');
 bindDialog(primerDialog, 'open-primer');

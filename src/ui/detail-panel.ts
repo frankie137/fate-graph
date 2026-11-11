@@ -151,11 +151,31 @@ export class DetailPanel {
             click: () => {
               this.activeTab = tab.key;
               this.render();
+              this.scrollToTabStart();
             },
           },
         }),
       ),
     );
+  }
+
+  /**
+   * After a tab change the panel keeps its scroll offset. When the reader had
+   * scrolled into the previous tab, that offset would land in the middle or at
+   * the end of the new tab, so the panel scrolls back to where the tab begins.
+   */
+  private scrollToTabStart(): void {
+    const tabs = this.root.querySelector<HTMLElement>('.tabs');
+    const body = this.root.querySelector<HTMLElement>('.tab-body');
+    if (!tabs || !body) {
+      return;
+    }
+    const bodyTop = body.getBoundingClientRect().top - this.root.getBoundingClientRect().top;
+    // The tab bar stays fixed at the top of the panel, so the body starts right below it.
+    const tabStart = this.root.scrollTop + bodyTop - tabs.offsetHeight;
+    if (this.root.scrollTop > tabStart) {
+      this.root.scrollTop = tabStart;
+    }
   }
 
   private renderTab(hexagram: Hexagram): HTMLElement {
