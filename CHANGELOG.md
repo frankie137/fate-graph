@@ -7,33 +7,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-<!-- next-header -->
-## [Unreleased] - ReleaseDate
-
-## [0.1.1] - 2019-09-03
+## [Unreleased]
 ### Added
-- New features go here in a bullet list
+- A 3D sphere of the 64 hexagrams that can be rotated and zoomed. An edge joins two hexagrams that differ in one line.
+- A detail panel for each hexagram with a beginner guide, the original text line by line, a summary of Ni Haixia's commentary, and the related hexagrams.
+- Search by name, King Wen number, or pinyin.
+- A catalog of all hexagrams and a primer for beginners.
+- Two color themes, Ink Gold (dark) and Rice Paper (light).
 
-### Changed
-- Changes to existing functionality go here in a bullet list
-
-### Deprecated
-- Mark features soon-to-be removed in a bullet list
-
-### Removed
-- Features that have been removed in a bullet list
-
-### Fixed
-- Bug fixes in a bullet list
-
-### Security
-- Changes/fixes related to security vulnerabilities in a bullet list
-
-## [0.1.0] - 2019-09-02
-### Added
-- Initial add of the thing
-
-<!-- next-url -->
-[Unreleased]: https://github.com/EmbarkStudios/$REPO_NAME/compare/0.1.1...HEAD
-[0.1.1]: https://github.com/EmbarkStudios/$REPO_NAME/compare/0.1.0...0.1.1
-[0.1.0]: https://github.com/EmbarkStudios/$REPO_NAME/releases/tag/0.1.0
+[Unreleased]: https://github.com/frankie137/fate-graph/commits/main
