@@ -35,7 +35,7 @@ The text of the site is in Simplified Chinese.
 - **Study notes for all 64 hexagrams**, in five tabs:
   - a beginner guide with an overview, practical advice, and a glossary of rare characters;
   - the original text line by line, each with a plain-language translation and an explanation;
-  - a slot for a picture of the hexagram, which is empty for now;
+  - the traditional woodcut picture of the hexagram (卦图);
   - a summary of Ni Haixia's commentary, with its sources;
   - the related hexagrams, each one click away.
 - **Search** by name, King Wen number, or pinyin, for example `屯`, `3`, or `zhun`.
@@ -79,7 +79,7 @@ Every push to `main` builds the site and publishes it to GitHub Pages through `.
 | --- | --- | --- |
 | Beginner guide (入门) | `src/content/guide/NN.json` | Written for this project |
 | Original text (原文逐爻) | `src/content/classics/NN.json` | The Zhouyi on [Chinese Wikisource](https://zh.wikisource.org/wiki/周易) |
-| Picture (图解) | `src/assets/tujie/NN.jpg` | No pictures yet. `src/assets/tujie/README.md` explains how to add them |
+| Picture (图解) | `src/assets/tujie/NN.jpg` | Scans from the hexagram pages of [finalhopes.com](http://www.finalhopes.com/yijing.html) |
 | Ni Haixia's commentary (倪师讲解) | `src/content/ni/NN.json` | Summaries of his Tianji (天纪) lectures |
 | Related hexagrams (卦变) | none | Computed by `src/domain/hexagrams.ts` |
 
@@ -90,6 +90,7 @@ Please keep these limits in mind when you read the notes:
 - **Original text.** The Wikisource edition differs from the received text (the Wang Bi recension that printed editions follow) in several dozen characters. `scripts/classics-corrections.json` lists these places, and the download script replaces each one with the received reading.
 - **Beginner guide.** The guide was drafted with an AI assistant. It follows the mainstream commentaries of Wang Bi, Cheng Yi, and Zhu Xi, and where they disagree it takes the most common reading. Nobody has checked it line by line against printed editions. Corrections are welcome.
 - **Ni Haixia's commentary.** These entries are paraphrased study notes, not his original text. They were compiled from transcriptions that circulate online, and every entry lists the pages it was compiled from. When a source lacks a part, the `note` field of the entry says which part is missing. If you hold rights to the source material and want an entry changed or removed, please open an issue.
+- **Pictures.** Each picture is a scan of a printed woodcut. The scans were downloaded from finalhopes.com and cropped, so that each file shows only the woodcut and the hexagram name printed beside it. The picture of hexagram 15 (谦) has no name beside it, because the site only offers that scan without the name. The site does not say which book the scans were made from, and it does not state a license for them. If you hold rights to a scan and want it changed or removed, please open an issue.
 
 ## Project structure
 
@@ -123,3 +124,5 @@ The code of this project is dual licensed under EITHER OF
 at your option.
 
 The files in `src/content/classics/` are derived from Chinese Wikisource, which publishes its text under the [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license. That license applies to those files.
+
+The pictures in `src/assets/tujie/` were downloaded from a third-party site that states no license for them. The dual license above does not cover these pictures.
