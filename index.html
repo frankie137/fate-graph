@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>六十四卦 · 卦象球</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="app" id="app">
+      <main class="stage" id="stage">
+        <div class="toolbar">
+          <h1 class="brand">六十四卦<span>卦象球</span></h1>
+          <div class="search" id="search"></div>
+          <div class="toolbar-buttons">
+            <button type="button" class="pill-button" id="open-catalog">卦序表</button>
+            <button type="button" class="pill-button" id="open-primer">新手指南</button>
+            <div class="theme-picker" id="theme-picker">
+              <button
+                type="button"
+                class="pill-button"
+                id="theme-toggle"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                配色
+              </button>
+              <ul class="theme-menu" id="theme-menu" role="radiogroup" aria-label="配色方案" hidden></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="legend">
+          <p class="legend-title">怎么看这个球</p>
+          <ul>
+            <li>越靠上阳爻越多，顶端是<b>乾</b>，底端是<b>坤</b>。</li>
+            <li>一条连线代表<b>只变一爻</b>，每个卦有六条。</li>
+            <li>正对面的卦是它的<b>错卦</b>。</li>
+          </ul>
+          <div class="legend-scale" id="legend-scale" aria-hidden="true"></div>
+          <p class="legend-hint">拖拽旋转 · 滚轮缩放 · 点击节点看讲解</p>
+        </div>
+
+        <button type="button" class="pill-button rotate-toggle" id="rotate-toggle" aria-pressed="true">
+          自动旋转
+        </button>
+        <div class="tooltip" id="tooltip" hidden></div>
+      </main>
+
+      <aside class="panel" id="panel" hidden aria-label="卦的讲解"></aside>
+    </div>
+
+    <dialog class="dialog" id="catalog-dialog" aria-labelledby="catalog-title">
+      <header class="dialog-header">
+        <h2 id="catalog-title">卦序表</h2>
+        <form method="dialog"><button class="icon-button" aria-label="关闭">×</button></form>
+      </header>
+      <p class="hint">按《周易》通行本的顺序排列，从乾到未济。点任意一卦查看讲解。</p>
+      <div class="catalog-grid" id="catalog-grid"></div>
+    </dialog>
+
+    <dialog class="dialog" id="primer-dialog" aria-labelledby="primer-title">
+      <header class="dialog-header">
+        <h2 id="primer-title">新手指南</h2>
+        <form method="dialog"><button class="icon-button" aria-label="关闭">×</button></form>
+      </header>
+      <div class="primer">
+        <h3>一、爻：最小的单位</h3>
+        <p>
+          《易经》的符号只有两种：一条连着的横线是<b>阳爻</b>，中间断开的横线是<b>阴爻</b>。阳代表刚健、主动、明亮，阴代表柔顺、承受、收敛。两者没有好坏之分，关键看它出现在什么位置、什么时机。
+        </p>
+        <h3>二、八卦：三根爻一组</h3>
+        <p>三根爻叠在一起，一共有八种组合，就是八卦。每一卦对应一种自然现象和一种性质：</p>
+        <div class="trigram-table" id="trigram-table"></div>
+        <h3>三、六十四卦：两个八卦相叠</h3>
+        <p>
+          把两个八卦上下叠起来，得到六根爻的卦，一共 8 × 8 = 64 种。下面的叫<b>下卦</b>（内卦），上面的叫<b>上卦</b>（外卦）。卦的全名通常是“上卦的象 + 下卦的象 + 卦名”，例如上面是水、下面是雷，就叫<b>水雷屯</b>。
+        </p>
+        <h3>四、一卦怎么读</h3>
+        <p>
+          每一卦有一句<b>卦辞</b>，说明这一卦整体的处境。六根爻各有一句<b>爻辞</b>，讲处境里不同阶段、不同位置的人该怎么做。爻从下往上数：初、二、三、四、五、上。阳爻称“九”，阴爻称“六”，所以最下面的阳爻叫“初九”，第二根阴爻叫“六二”。
+        </p>
+        <p>
+          《彖传》和《象传》是古人对卦辞、爻辞的解释，相传出自孔子一派。初学时可以先读“入门”一栏，再对照“原文逐爻”。
+        </p>
+        <h3>五、卦与卦的关系</h3>
+        <p>
+          卦不是孤立的。把某一根爻阴阳互换，就变成另一个卦，这叫<b>变卦</b>；球上的每一条连线就是一次这样的变化。此外还有<b>错卦</b>（阴阳全反）、<b>综卦</b>（上下颠倒）和<b>互卦</b>（取中间四爻重组）。选中一个卦后，球上会把这些关系标出来。
+        </p>
+        <h3>六、建议的学习顺序</h3>
+        <p>
+          先读乾、坤两卦，它们是其余六十二卦的基础。之后按卦序往下读，或者从一个你感兴趣的卦出发，沿着连线看它的六个变卦，体会“只差一爻”带来的处境变化。
+        </p>
+      </div>
+    </dialog>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

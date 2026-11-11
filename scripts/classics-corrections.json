@@ -1,0 +1,344 @@
+[
+  {
+    "number": 4,
+    "field": "lines[5].image",
+    "from": "利御寇，上下顺也。",
+    "to": "利用御寇，上下顺也。"
+  },
+  {
+    "number": 8,
+    "field": "lines[4].text",
+    "from": "王用三敺",
+    "to": "王用三驱"
+  },
+  {
+    "number": 9,
+    "field": "lines[2].text",
+    "from": "车说輹，夫妻反目。",
+    "to": "舆说辐，夫妻反目。"
+  },
+  {
+    "number": 9,
+    "field": "lines[5].text",
+    "from": "尚得载",
+    "to": "尚德载"
+  },
+  {
+    "number": 10,
+    "field": "tuan",
+    "from": "不咥人，亨，利贞。",
+    "to": "不咥人，亨。"
+  },
+  {
+    "number": 10,
+    "field": "lines[5].text",
+    "from": "视履考详",
+    "to": "视履考祥"
+  },
+  {
+    "number": 12,
+    "field": "lines[4].text",
+    "from": "系于包桑",
+    "to": "系于苞桑"
+  },
+  {
+    "number": 13,
+    "field": "lines[3].text",
+    "from": "乘其庸",
+    "to": "乘其墉"
+  },
+  {
+    "number": 13,
+    "field": "lines[3].image",
+    "from": "乘其庸",
+    "to": "乘其墉"
+  },
+  {
+    "number": 13,
+    "field": "lines[4].text",
+    "from": "先号啕而后笑",
+    "to": "先号咷而后笑"
+  },
+  {
+    "number": 14,
+    "field": "lines[1].text",
+    "from": "大轝以载",
+    "to": "大车以载"
+  },
+  {
+    "number": 14,
+    "field": "lines[1].image",
+    "from": "大轝以载",
+    "to": "大车以载"
+  },
+  {
+    "number": 14,
+    "field": "lines[3].text",
+    "from": "匪其尫",
+    "to": "匪其彭"
+  },
+  {
+    "number": 14,
+    "field": "lines[5].text",
+    "from": "自天佑之",
+    "to": "自天祐之"
+  },
+  {
+    "number": 14,
+    "field": "lines[5].image",
+    "from": "自天佑也",
+    "to": "自天祐也"
+  },
+  {
+    "number": 16,
+    "field": "lines[3].text",
+    "from": "朋盍戠",
+    "to": "朋盍簪"
+  },
+  {
+    "number": 21,
+    "field": "lines[2].text",
+    "from": "噬昔肉",
+    "to": "噬腊肉"
+  },
+  {
+    "number": 23,
+    "field": "judgment",
+    "from": "不利。有攸往。",
+    "to": "不利有攸往。"
+  },
+  {
+    "number": 23,
+    "field": "image",
+    "from": "山附地上，剥",
+    "to": "山附于地，剥"
+  },
+  {
+    "number": 23,
+    "field": "lines[5].text",
+    "from": "君子德车",
+    "to": "君子得舆"
+  },
+  {
+    "number": 25,
+    "field": "tuan",
+    "from": "天命不佑",
+    "to": "天命不祐"
+  },
+  {
+    "number": 26,
+    "field": "lines[2].text",
+    "from": "利艰贞，吉。",
+    "to": "利艰贞。"
+  },
+  {
+    "number": 26,
+    "field": "lines[2].text",
+    "from": "日闲舆卫",
+    "to": "曰闲舆卫"
+  },
+  {
+    "number": 26,
+    "field": "lines[3].text",
+    "from": "童牛之告",
+    "to": "童牛之牿"
+  },
+  {
+    "number": 29,
+    "field": "tuan",
+    "from": "坎之时用大矣哉",
+    "to": "险之时用大矣哉"
+  },
+  {
+    "number": 29,
+    "field": "lines[3].text",
+    "from": "尊酒簋",
+    "to": "樽酒簋"
+  },
+  {
+    "number": 29,
+    "field": "lines[3].text",
+    "from": "内约自牖",
+    "to": "纳约自牖"
+  },
+  {
+    "number": 29,
+    "field": "lines[3].image",
+    "from": "刚柔济也",
+    "to": "刚柔际也"
+  },
+  {
+    "number": 29,
+    "field": "lines[4].text",
+    "from": "禔既平",
+    "to": "祗既平"
+  },
+  {
+    "number": 30,
+    "field": "lines[2].text",
+    "from": "大耋之差",
+    "to": "大耋之嗟"
+  },
+  {
+    "number": 32,
+    "field": "lines[5].text",
+    "from": "震恒",
+    "to": "振恒"
+  },
+  {
+    "number": 34,
+    "field": "lines[3].text",
+    "from": "壮于大轝之腹",
+    "to": "壮于大舆之輹"
+  },
+  {
+    "number": 35,
+    "field": "lines[4].text",
+    "from": "矢得勿恤",
+    "to": "失得勿恤"
+  },
+  {
+    "number": 40,
+    "field": "tuan",
+    "from": "解之时义大矣哉",
+    "to": "解之时大矣哉"
+  },
+  {
+    "number": 40,
+    "field": "lines[4].text",
+    "from": "君子惟有解",
+    "to": "君子维有解"
+  },
+  {
+    "number": 41,
+    "field": "lines[0].text",
+    "from": "祀事遄往",
+    "to": "已事遄往"
+  },
+  {
+    "number": 41,
+    "field": "lines[4].image",
+    "from": "自上佑也",
+    "to": "自上祐也"
+  },
+  {
+    "number": 43,
+    "field": "lines[1].image",
+    "from": "莫夜有戎，得中道也。",
+    "to": "有戎勿恤，得中道也。"
+  },
+  {
+    "number": 45,
+    "field": "judgment",
+    "from": "王假有庙，利见大人，亨。",
+    "to": "亨。王假有庙，利见大人，亨。"
+  },
+  {
+    "number": 45,
+    "field": "lines[5].text",
+    "from": "赍资涕洟",
+    "to": "赍咨涕洟"
+  },
+  {
+    "number": 46,
+    "field": "lines[3].text",
+    "from": "王用享于岐山",
+    "to": "王用亨于岐山"
+  },
+  {
+    "number": 47,
+    "field": "lines[1].text",
+    "from": "利用亨祀",
+    "to": "利用享祀"
+  },
+  {
+    "number": 47,
+    "field": "lines[2].text",
+    "from": "蒺蔾",
+    "to": "蒺藜"
+  },
+  {
+    "number": 47,
+    "field": "lines[3].text",
+    "from": "来荼荼，困于金轝",
+    "to": "来徐徐，困于金车"
+  },
+  {
+    "number": 48,
+    "field": "lines[4].text",
+    "from": "井冽",
+    "to": "井洌"
+  },
+  {
+    "number": 49,
+    "field": "tuan",
+    "from": "革而信也",
+    "to": "革而信之"
+  },
+  {
+    "number": 49,
+    "field": "tuan",
+    "from": "革之时义大矣哉",
+    "to": "革之时大矣哉"
+  },
+  {
+    "number": 50,
+    "field": "lines[3].text",
+    "from": "其刑渥",
+    "to": "其形渥"
+  },
+  {
+    "number": 52,
+    "field": "lines[2].text",
+    "from": "裂其夤，厉阍心",
+    "to": "列其夤，厉薰心"
+  },
+  {
+    "number": 52,
+    "field": "lines[4].text",
+    "from": "言有孚",
+    "to": "言有序"
+  },
+  {
+    "number": 56,
+    "field": "lines[1].text",
+    "from": "得僮仆贞",
+    "to": "得童仆贞"
+  },
+  {
+    "number": 56,
+    "field": "lines[2].text",
+    "from": "丧其僮仆",
+    "to": "丧其童仆"
+  },
+  {
+    "number": 59,
+    "field": "lines[0].text",
+    "from": "用拯马壮，吉，悔亡。",
+    "to": "用拯马壮，吉。"
+  },
+  {
+    "number": 60,
+    "field": "lines[1].image",
+    "from": "不出门庭，失时极也。",
+    "to": "不出门庭凶，失时极也。"
+  },
+  {
+    "number": 61,
+    "field": "lines[2].image",
+    "from": "可鼓或罢",
+    "to": "或鼓或罢"
+  },
+  {
+    "number": 61,
+    "field": "lines[3].text",
+    "from": "月既望",
+    "to": "月几望"
+  },
+  {
+    "number": 62,
+    "field": "tuan",
+    "from": "有飞鸟之象焉，有飞鸟遗之音",
+    "to": "有飞鸟之象焉，飞鸟遗之音"
+  }
+]
