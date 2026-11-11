@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- The project is now licensed under the PolyForm Noncommercial License 1.0.0. The commits before this change were published under MIT OR Apache-2.0.
+
 ### Added
 - A 3D sphere of the 64 hexagrams that can be rotated and zoomed. An edge joins two hexagrams that differ in one line.
 - A detail panel for each hexagram with a beginner guide, the original text line by line, a summary of Ni Haixia's commentary, and the related hexagrams.

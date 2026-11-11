@@ -12,7 +12,7 @@
 
 [![Build status](https://github.com/frankie137/fate-graph/actions/workflows/ci.yml/badge.svg)](https://github.com/frankie137/fate-graph/actions/workflows/ci.yml)
 [![在线访问](https://img.shields.io/badge/在线访问-GitHub%20Pages-blue)](https://frankie137.github.io/fate-graph/)
-[![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue)](#许可证)
+[![License](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue)](#许可证)
 
 [English](README.md) | 简体中文
 
@@ -109,15 +109,18 @@ npm run dev
 
 开始之前请阅读[贡献指南](CONTRIBUTING.md)；提交任何贡献之前，请阅读其中的[贡献者条款](CONTRIBUTING.md#contributor-terms)。
 
-凡是有意提交到本项目的贡献，都按下面的双许可证授权，不附加其它条款。
+你提交到本项目的贡献，按贡献者条款所写的方式授权。
 
 ### 许可证
 
-本项目的代码采用双许可证，你可以任选其一：
+Copyright (c) 2026 Frankie Lu.
 
-- Apache License 2.0（[LICENSE-APACHE](LICENSE-APACHE) 或 <http://www.apache.org/licenses/LICENSE-2.0>）
-- MIT 许可证（[LICENSE-MIT](LICENSE-MIT) 或 <http://opensource.org/licenses/MIT>）
+本项目采用 [PolyForm Noncommercial License 1.0.0](LICENSE)。具体条款以许可证的英文原文为准，它的要点是：
+
+- **允许非商业使用。** 你可以出于任何非商业目的使用、修改和分享本项目。
+- **商业使用需要另外取得许可。** PolyForm Noncommercial License 不允许商业使用。如果你想把本项目用于商业用途，请在本仓库提交 issue 申请商业许可，具体条款由你和版权人商定。
+- **必须注明作者。** 你把本项目的任何部分交给别人时，无论是否修改过，都必须同时提供许可证条款或许可证条款的网址，以及 [NOTICE](NOTICE) 文件里的那一行文字。那一行文字写明了作者和本仓库的地址。
 
 `src/content/classics/` 目录下的文件来自中文维基文库。维基文库的文本以 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 许可证发布，这些文件适用该许可证。
 
-`src/assets/tujie/` 目录下的图片从第三方网站下载，这个网站没有给出这些图片的许可证。上面的双许可证不适用于这些图片。
+`src/assets/tujie/` 目录下的图片从第三方网站下载，这个网站没有给出这些图片的许可证。PolyForm Noncommercial License 不适用于这些图片。

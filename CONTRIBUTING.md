@@ -60,13 +60,15 @@ The text for each hexagram lives in JSON files under `src/content/`. The fields 
 
 ## Licensing
 
-Unless otherwise specified, the code of this project is licensed under a dual license, allowing licensees to choose either MIT OR Apache-2.0 at their option. The README describes the terms that apply to the text content.
+Unless otherwise specified, this project is licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE), which allows noncommercial use only. The copyright holder, Frankie Lu, also grants separate commercial licenses on request. The README describes the terms that apply to the Zhouyi text and to the pictures.
 
 ## Contributor Terms
 
 Thank you for your interest in this project. By providing a contribution (new or modified code, text, other input, feedback or suggestions etc.) you agree to these Contributor Terms.
 
-You confirm that each of your contributions has been created by you and that you are the copyright owner. You also confirm that you have the right to provide the contribution and that you do it under the dual licence model (MIT + Apache 2.0).
+You confirm that each of your contributions has been created by you and that you are the copyright owner. You also confirm that you have the right to provide the contribution.
+
+You grant the copyright holder of this project, Frankie Lu, a license to each of your contributions. The license is free of charge, has no time limit, and cannot be withdrawn. It allows the copyright holder to publish your contribution as part of this project under the PolyForm Noncommercial License 1.0.0, and to include your contribution in the commercial licenses that the copyright holder grants to other people.
 
 If you want to contribute something that is not your original creation, say so in the pull request and include details of its source and of any license or other restriction that applies to it.
 

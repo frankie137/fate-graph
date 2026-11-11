@@ -12,7 +12,7 @@
 
 [![Build status](https://github.com/frankie137/fate-graph/actions/workflows/ci.yml/badge.svg)](https://github.com/frankie137/fate-graph/actions/workflows/ci.yml)
 [![Live site](https://img.shields.io/badge/live%20site-GitHub%20Pages-blue)](https://frankie137.github.io/fate-graph/)
-[![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue)](#license)
+[![License](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue)](#license)
 
 English | [简体中文](README.zh-CN.md)
 
@@ -112,17 +112,18 @@ We welcome community contributions to this project.
 Please read our [Contributor Guide](CONTRIBUTING.md) for more information on how to get started.
 Please also read our [Contributor Terms](CONTRIBUTING.md#contributor-terms) before you make any contributions.
 
-Any contribution intentionally submitted for inclusion in this project shall be dual licensed as described below, without any additional terms or conditions.
+Any contribution you submit to this project is licensed as the Contributor Terms describe.
 
 ### License
 
-The code of this project is dual licensed under EITHER OF
+Copyright (c) 2026 Frankie Lu.
 
-- Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or <http://www.apache.org/licenses/LICENSE-2.0>)
-- MIT license ([LICENSE-MIT](LICENSE-MIT) or <http://opensource.org/licenses/MIT>)
+This project is licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE). The license text is the authoritative statement of the terms. Its main points are:
 
-at your option.
+- **Noncommercial use is allowed.** You may use the project, change it, and share it for any noncommercial purpose.
+- **Commercial use needs a separate license.** The PolyForm Noncommercial License does not allow commercial use. If you want to use the project commercially, open an issue in this repository to ask for a commercial license. The copyright holder and you then agree on the terms.
+- **You must credit the author.** When you give anyone a copy of any part of the project, with or without your changes, you must also give them the license terms or the URL of the license terms, and the line in the [NOTICE](NOTICE) file. That line names the author and this repository.
 
 The files in `src/content/classics/` are derived from Chinese Wikisource, which publishes its text under the [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license. That license applies to those files.
 
-The pictures in `src/assets/tujie/` were downloaded from a third-party site that states no license for them. The dual license above does not cover these pictures.
+The pictures in `src/assets/tujie/` were downloaded from a third-party site that states no license for them. The PolyForm Noncommercial License does not cover these pictures.
